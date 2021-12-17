@@ -2,10 +2,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AnaSayfa {
-    int num[] = new int [5];
+
+    Scanner keyboard = new Scanner(System.in);
     ArrayList<String> yazar = new ArrayList<>();
     ArrayList<String> kitap = new ArrayList<>();
-
+    String kitapListe[]= new String[5];
     public void start() {
         yazar.add("Dan Brown");
         yazar.add("Victor Hugo");
@@ -16,18 +17,16 @@ public class AnaSayfa {
 
             for ( int i=0 ; i< kitap.size() ; i++){
                 System.out.println(yazar.get(i) + " - "+kitap.get(i));
+                System.out.println("Kütüphaneye ekle ?");
+                int cevap =keyboard.nextInt();
+                if(cevap == 1){
+                    kitapListe[i] = kitap.get(i)+yazar.get(i);
+                }
             }
+          
 
-       /* public void bookadd() {
-            Scanner keyboard = new Scanner(System.in);
-            for (int i = 0; i < yazar.size(); i++) {
-                System.out.println(yazar.get(i) + " - " + kitap.get(i));
-                System.out.println("Kütüphaneye eklenen kitap");
-                num[i] = keyboard.nextInt();
-            }
-        } */
+        }
 
-    }
 
 
 
