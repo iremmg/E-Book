@@ -1,6 +1,0 @@
-class Kütüphane extends AnaSayfa{
-
-
-}
-
-
