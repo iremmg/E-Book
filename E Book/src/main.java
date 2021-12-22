@@ -5,6 +5,8 @@ public class main {
         e.login();
         AnaSayfa a = new AnaSayfa();
         a.start();
+        Kutuphane k = new Kutuphane();
+        k.listBook(a.kitapListe);
 
 
     }}
