@@ -3,34 +3,35 @@ import java.util.Scanner;
 
 public class AnaSayfa {
 
+
     Scanner keyboard = new Scanner(System.in);
-    ArrayList<String> yazar = new ArrayList<>();
+
+    ArrayList<String> kitapListe = new ArrayList<>();
     ArrayList<String> kitap = new ArrayList<>();
-    String kitapListe[]= new String[5];
+    int cevap;
     public void start() {
-        yazar.add("Dan Brown");
-        yazar.add("Victor Hugo");
-        yazar.add("Nazım Hikmet");
-        kitap.add("Başlangıç"); // macera              0
-        kitap.add("Sefiller"); // klasik               1
-        kitap.add("Nâzım ile Piraye"); // romantik     2
-
-            for ( int i=0 ; i< kitap.size() ; i++){
-                System.out.println(yazar.get(i) + " - "+kitap.get(i));
-                System.out.println("Kütüphaneye ekle ?");
-                int cevap =keyboard.nextInt();
-                if(cevap == 1){
-                    kitapListe[i] = kitap.get(i)+yazar.get(i);
-                }
+        kitap.add("Dan Brown - Baslangıc"); // aksiyon
+        kitap.add("Victor Hugo - Sefiller"); // klasik
+        kitap.add("Nazim Hikmet - Nazim ile Piraye"); //romantik
+        for ( int i=0 ; i< kitap.size() ; i++){
+            int temp =0;
+            System.out.println(kitap.get(i));
+            System.out.println("Kutuphaneye ekle ?");
+            cevap =keyboard.nextInt(); // Kütüphaneye eklenecek kitaplar konsoldan 1 ve 0 değerleriyle belirlenir
+            if(cevap == 1){
+                temp ++;
+                kitapListe.add(kitap.get(i));  // Girilen deper 1 ise kitap kütüphaneye eklenilir. 1 = buton olacak şekilde
+                // arayüz yapılacaktır.
             }
-          
-
         }
 
+        listBook(kitapListe);
+        searchBook(kitapListe);
+    }
 
+    public void listBook(ArrayList<String> kitapListe) {
 
+    }
+    public void searchBook(ArrayList<String> kitapListe){
 
-
-
-
-}
+    }
