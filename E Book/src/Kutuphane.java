@@ -28,9 +28,7 @@ class kutuphane extends AnaSayfa{
         for(int i=0 ; i<a.size();i++){
             int b = a.get(i);
             kitapListe1.remove(b);
-            System.out.println(kitapListe1);
-
-        }
+        } System.out.println(kitapListe1);
 
     }
 
