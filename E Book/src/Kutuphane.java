@@ -13,13 +13,13 @@ class kutuphane extends AnaSayfa{
             System.out.println(kitapListe1.get(i));
             System.out.println("Kitap sil");
             cevap= keyboard.nextInt();
-            if(cevap ==1){
+            if(cevap ==1){  //Cevap =1 olduğunda kitap silinecektir
                 a.add(i);
             }
             else{
                 System.out.println("Oku : ");
                 cevap= keyboard.nextInt();
-                if (cevap==1){
+                if (cevap==1){   // cevap =1 olduğunda kitap okumak için showBook a gönderilir.
                     showBook(kitapListe1.get(i)); break;
                 }
             }
