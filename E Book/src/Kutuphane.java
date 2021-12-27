@@ -1,3 +1,6 @@
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -5,7 +8,7 @@ class kutuphane extends AnaSayfa{
 
     @Override
     public void listBook(ArrayList<String> kitapListe1) {
-        Scanner keyboard = new Scanner(System.in);
+        Scanner keyboard = new Scanner(System.in,"ISO-8859-9");
         kitapListe1.addAll(kitapListe);
         System.out.println("kutuphanedeki kitaplar :\n"+kitapListe1);
         ArrayList<Integer> a = new ArrayList<>();
@@ -14,7 +17,12 @@ class kutuphane extends AnaSayfa{
             System.out.println("Kitap sil");
             cevap= keyboard.nextInt();
             if(cevap ==1){  //Cevap =1 olduğunda kitap silinecektir
-                a.add(i);
+
+                // String path = "C:/Users/senaa/Desktop/deneme/kitap_adi.txt";
+
+                File dosya = new File("C:/Users/Asus/Desktop/EBook/");
+                if(dosya.delete())
+                    System.out.println("Dosya silinmiştir.");
             }
             else{
                 System.out.println("Oku : ");
@@ -25,15 +33,22 @@ class kutuphane extends AnaSayfa{
             }
 
         }
-        for(int i=0 ; i<a.size();i++){
-            int b = a.get(i);
-            kitapListe1.remove(b);
-        } System.out.println(kitapListe1);
+   }
 
-    }
-
-    private void showBook(String s) {
-        System.out.println(s);
+    private void showBook(String kitap) {
+        try
+        {
+            Scanner s = new Scanner(new File("C:/Users/Asus/Desktop/EBook/kitap_adi.txt"));
+            while(s.hasNextLine())
+            {
+                System.out.println(s.nextLine());
+            }
+            s.close();
+        }
+        catch(IOException e)
+        {
+            System.out.println(e);
+        }
     }
 
 
