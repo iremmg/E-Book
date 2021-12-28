@@ -1,4 +1,3 @@
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -6,55 +5,40 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class KitapYazma extends AnaSayfa {
-    static int i=0;
+
 
     public void WriteBook(){
-
-        i++;
+        // TODO code application logic here
         PrintWriter cikti = null;
-
-        Scanner klavye = new Scanner(System.in); //"ISO-8859-9"
-        File dosya = new File("C:/Users/Asus/Desktop/EBook/kitap_Adi.txt");
-        try
-        {
-            cikti = new PrintWriter(new FileOutputStream(dosya,true));
-        }
-        catch(FileNotFoundException hata)
-        {
-            System.out.println("kitapAdi.txt dosyası oluşturulurken hata oldu");
-            System.exit(0);
-        }
-        System.out.println("Bir Hikaye Yaz: ");
+        // PrintWriter kitap_adi=null;
+        Scanner klavye = new Scanner(System.in);//"ISO-8859-9"
+        System.out.println("Kitap yazmak ister misiniz: ");
         int yanit = klavye.nextInt();
-
         if(yanit==1)
         {
             System.out.println("Lütfen kitabınızın adını giriniz: ");
+            String bosluk = klavye.nextLine();
+            String kitap_adi = klavye.nextLine();
 
-            String kitap_Adi = klavye.nextLine();
-            cikti.println(kitap_Adi);
+            File dosya = new File("C:/Users/Asus/Desktop/EBook/"+kitap_adi+".txt");
+
+            try
+
+            {
+                cikti = new PrintWriter(new FileOutputStream(dosya,true));
+            }
+            catch(FileNotFoundException hata)
+            {
+                System.out.println(kitap_adi+".txt dosyası oluşturulurken hata oldu");
+                System.exit(0);
+            }
+
+            System.out.print("Kitabınızı yazmaya başlayabilirsiniz: ");
+            String kitap = klavye.nextLine();
+            cikti.println(kitap_adi);
+            cikti.println("Kitabınızın Birinci Bölümü:\n"+kitap);
             cikti.close();
-
-        }
-        try
-        {
-            cikti = new PrintWriter(new FileOutputStream(dosya,true));
-        }
-        catch(FileNotFoundException hata)
-        {
-            System.out.println("kitapAdi.txt dosyası oluşturulurken hata oldu");
-            System.exit(0);
+            System.out.println("girilen cümle "+kitap_adi+".txt dosyasına yazıldı.");
         }
 
-
-        System.out.print("Kitabınızı yazmaya başlayabilirsiniz: ");
-          Scanner k = new Scanner(System.in);
-        String kitap = k.nextLine();
-        cikti.println(i+".Bölüm:\n"+kitap);
-
-        System.out.println(i);
-        cikti.close();
-
-
-    }
-}
+}}
