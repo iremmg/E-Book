@@ -24,12 +24,12 @@ class kutuphane extends AnaSayfa{
                 if(dosya.delete())
                     System.out.println("Dosya silinmiştir.");
             }
-            else{
+            
                 System.out.println("Oku : ");
                 cevap= keyboard.nextInt();
                 if (cevap==1){   // cevap =1 olduğunda kitap okumak için showBook a gönderilir.
                     showBook(kitapListe1.get(i)); break;
-                }
+                
             }
 
         }
