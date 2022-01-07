@@ -10,9 +10,14 @@ public class AnaSayfa {
     ArrayList<String> kitap = new ArrayList<>();
     int cevap;
     public void start() {
-        kitap.add("Dan Brown - Baslangıc"); // aksiyon
-        kitap.add("Victor Hugo - Sefiller"); // klasik
-        kitap.add("Nazim Hikmet - Nazim ile Piraye"); //romantik
+        kitapAdi.add("İçimizdeki Şeytan  -  Sebahattin Ali"); 
+        kitapAdi.add("Anka Arslan  -  İlayda Gök"); 
+        kitapAdi.add("Gökyüzünde  -  İlyas Demir");
+        kitapAdi.add("Hacker  -  Melis Sude Özbay");
+        kitapAdi.add("Yaban  -  Yakup Kadri Karaosmanoğlu");
+        kitapAdi.add("Aden Uyanış  -  Bahadır Özsoy");
+        kitapAdi.add("Aşk-ı Memnu  -  Halit Ziya Uşaklıgil");
+        kitapAdi.add("Mahfi Başlangıç  -  Derin Tok");
         for ( int i=0 ; i< kitap.size() ; i++){
             int temp =0;
             System.out.println(kitap.get(i));
