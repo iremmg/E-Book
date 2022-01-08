@@ -7,7 +7,7 @@ public class AnaSayfa {
     Scanner keyboard = new Scanner(System.in);
 
     ArrayList<String> kitapListe = new ArrayList<>();
-    ArrayList<String> kitap = new ArrayList<>();
+    ArrayList<String> kitapAdi = new ArrayList<>();
     int cevap;
     public void start() {
         kitapAdi.add("İçimizdeki Şeytan  -  Sebahattin Ali"); 
