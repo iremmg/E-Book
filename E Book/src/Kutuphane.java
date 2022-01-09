@@ -1,16 +1,15 @@
-import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-class kutuphane extends AnaSayfa{
+class Kutuphane extends AnaSayfa{
 
     @Override
     public void listBook(ArrayList<String> kitapListe1) {
         Scanner keyboard = new Scanner(System.in,"ISO-8859-9");
         kitapListe1.addAll(kitapListe);
-        System.out.println("kutuphanedeki kitaplar :\n"+kitapListe1);
+        System.out.println("kutuphanedeki kitaplar :\n"+kitapListe1 +"\n");
         ArrayList<Integer> a = new ArrayList<>();
         for(int i =0; i<kitapListe1.size();i++){
             System.out.println(kitapListe1.get(i));
@@ -24,21 +23,18 @@ class kutuphane extends AnaSayfa{
                 if(dosya.delete())
                     System.out.println("Dosya silinmiştir.");
             }
-            
+
                 System.out.println("Oku : ");
                 cevap= keyboard.nextInt();
                 if (cevap==1){   // cevap =1 olduğunda kitap okumak için showBook a gönderilir.
                     showBook(kitapListe1.get(i)); break;
-                
-            }
-
-        }
-   }
+                }
+            }}
 
     private void showBook(String kitap) {
         try
         {
-            Scanner s = new Scanner(new File("C:/Users/Asus/Desktop/EBook/kitap_adi.txt"));
+            Scanner s = new Scanner(new File("C:/Users/Asus/Desktop/EBook/"+kitap+".txt"));
             while(s.hasNextLine())
             {
                 System.out.println(s.nextLine());
@@ -49,8 +45,4 @@ class kutuphane extends AnaSayfa{
         {
             System.out.println(e);
         }
-    }
-
-
-}
-
+    }}
