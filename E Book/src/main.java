@@ -6,21 +6,18 @@ public class main {
 
     EBook e = new EBook();
     e.KullanıcıEkle();
+   if(e.istek ==1) {
+       AnaSayfa a = new AnaSayfa();
+       a.start();
 
-    AnaSayfa a = new AnaSayfa();
-    a.start();
+       Kutuphane k = new Kutuphane();
+       k.listBook(a.kitapListe);
 
-     Kutuphane k = new Kutuphane();
-     k.listBook(a.kitapListe);
+       Kesfet k1 = new Kesfet();
+       k1.searchBook(a.kitapAdi);
 
-     Kesfet k1 = new Kesfet();
-     k1.searchBook(a.kitapAdi );
+       KitapYazma ky = new KitapYazma();
+       ky.WriteBook();
+   }
 
-     KitapYazma ky = new KitapYazma();
-     ky.WriteBook();
-
-
-
-
-    } }
-
+    }}
