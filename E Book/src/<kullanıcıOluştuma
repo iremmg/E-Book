@@ -1,0 +1,162 @@
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+    /**
+     *
+     * 
+     */
+
+    class kullanıcıOluşturma
+    {
+        String isim,mail;
+        String KullanıcıAdı;
+        String şifre,guvenlik;
+
+        kullanıcıOluşturma(String isim ,String KullanıcıAdı,String mail,String şifre,String guvenlik)
+        {   this.isim=isim;
+            this.mail=mail;
+            this.KullanıcıAdı=KullanıcıAdı;
+            this.şifre=şifre;
+            this.guvenlik = guvenlik;
+        }
+
+        public void KullanıcıEkle()
+        {
+            Scanner keyboard = new Scanner(System.in);//"ISO-8859-9"
+            System.out.println("kayıt olmak ister misiniz?");
+            int istek = keyboard.nextInt();
+            PrintWriter girdi = null;
+            ArrayList<String> guvenlikSorusu = new ArrayList<>();
+            guvenlikSorusu.add("İlk evcil hayvanınızın ismi nedir");
+            guvenlikSorusu.add("En sevdiğiniz yemek");
+            guvenlikSorusu.add("En sevdiğiniz spor");
+
+            if(istek==1){
+                System.out.println("------------ HOŞGELDİNİZ ");
+                String bosluk = keyboard.nextLine();
+                System.out.print("İsim : ");
+                String isim = keyboard.nextLine();
+                System.out.print("Kullanıcı adı : ");
+                String KullanıcıAdı = keyboard.nextLine();
+                System.out.print("E-posta : ");
+                String mail = keyboard.nextLine();
+                System.out.print("Şifre : ");
+                String şifre = keyboard.nextLine();
+                System.out.println("Güvenlik Sorusu seçiniz");
+                System.out.println("1) İlk evcil hayvanınızın ismi nedir");
+                System.out.println("2) En sevdiğiniz yemek");
+                System.out.println("3) En sevdiğiniz spor");
+                String cevap = keyboard.nextLine();
+                System.out.println("Cevabınız : ");
+                String guvenlik = keyboard.nextLine();
+                File dosya = new File("C:\\Users\\Asus\\Desktop\\kullanıcı\\ "+KullanıcıAdı+".txt");
+                try
+                {
+                    girdi = new PrintWriter(new FileOutputStream(dosya,true));
+                }
+                catch(FileNotFoundException ex)
+                {
+                    System.out.println(KullanıcıAdı+".txt dosyası oluşturulurken hata oldu");
+                    System.exit(0);
+                }
+                girdi.print(isim+"\n"+KullanıcıAdı+"\n"+mail+"\n"+şifre+"\n"+guvenlik);
+                girdi.close();
+                System.out.println("kayıt olma işlemi başarıyla tamamlandı");
+            }
+
+        }
+
+        public String getKullanıcıAdı() {
+            return KullanıcıAdı;
+        }
+
+        public void setKullanıcıAdı(String kullanıcıAdı) {
+            KullanıcıAdı = kullanıcıAdı;
+        }
+
+        public String getIsim() {
+            return isim;
+        }
+
+        public void setIsim(String isim) {
+            this.isim = isim;
+        }
+
+        public String getMail() {
+            return mail;
+        }
+
+        public void setMail(String mail) {
+            this.mail = mail;
+        }
+    }
+    class kayıtlıKullanıcı extends kullanıcıOluşturma
+    {
+        String kullanıcıAdı;
+        String sifre;
+
+      /*  public kayıtlıKullanıcı(String isim, String KullanıcıAdı, String mail, String şifre, String guvenlik, String kullanıcıAdı) {
+            super(isim, KullanıcıAdı, mail, şifre, guvenlik);
+            this.kullanıcıAdı = kullanıcıAdı;
+        }*/
+
+        public kayıtlıKullanıcı(String irem, String irem1514, String mail, String abc, String karabaş) {
+            super(irem,irem1514,mail,abc,karabaş);
+        }
+
+        public void kayıtlı(){
+
+            int cevap=0;
+            String guvenlik1;
+            System.out.println("kayıtlı kullanıcı mısınız:");
+            Scanner klavye = new Scanner(System.in);
+            int kayıtlı = klavye.nextInt();
+            String düzeltme = klavye.nextLine();
+            if(kayıtlı==1)
+            {
+                System.out.println("kullanıcı adını giriniz: ");
+                String kullanıcıAdı = klavye.nextLine();
+                System.out.println("şifrenizi giriniz: ");
+                String sifre = klavye.nextLine();
+                try
+                {
+                    Scanner s = new Scanner(new File("C:\\Users\\Asus\\Desktop\\kullanıcı\\ "+KullanıcıAdı+".txt"));
+                    while(s.hasNextLine())
+                    {System.out.println(s.nextLine());}
+                     //s.close();
+                }
+                catch(IOException e)
+                {System.out.println("hata:"+e);}
+                if(kullanıcıAdı.equals(KullanıcıAdı)&&şifre.equals(sifre))
+                {System.out.println("başarılı giriş yaptınız.");}
+                else{
+                    System.out.println("kullanıcı adı veya şifreyi yanlış girdiniz.");
+                    System.out.println("Şifreyi Sıfırla");
+                    cevap = klavye.nextInt();
+                    if(cevap ==1){
+                        System.out.println("İlk evcil hayvanınızın ismi nedir");
+                        System.out.println("En sevdiğiniz yemek");
+                        System.out.println("En sevdiğiniz spor");
+                        String deneme = klavye.nextLine();
+                        guvenlik1 = klavye.nextLine();
+                        if(guvenlik1.equals(guvenlik)){
+                            guvenlik = guvenlik1;
+                            System.out.print("Yeni şifrenizi giriniz : ");
+                            this.şifre = klavye.nextLine();
+                            System.out.println("Şifre sıfırlama başarılı");
+                            kayıtlı();}}
+                     else{
+                        System.out.println("Hatalı giriş");
+                        sifre = klavye.nextLine();
+                    }
+                }
+            }
+
+
+        }}
