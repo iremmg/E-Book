@@ -4,9 +4,9 @@ public class main {
     public static void main(String[] args) {
 
 
-    EBook e = new EBook();
-    e.KullanıcıEkle();
-   if(e.istek ==1) {
+       EBook e = new EBook();
+       e.KullanıcıEkle();
+  
        AnaSayfa a = new AnaSayfa();
        a.start();
 
@@ -18,6 +18,6 @@ public class main {
 
        KitapYazma ky = new KitapYazma();
        ky.WriteBook();
-   }
+   
 
     }}
