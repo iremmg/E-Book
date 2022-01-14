@@ -1,8 +1,8 @@
-public class KullanıcıOluşturma2 {
+public class Kullanıcı {
     String isim,mail;
     String KullanıcıAdı;
     String şifre,guvenlik;
-    KullanıcıOluşturma2(String isim ,String KullanıcıAdı,String mail,String şifre,String guvenlik)
+    Kullanıcı(String isim ,String KullanıcıAdı,String mail,String şifre,String guvenlik)
     {   this.isim=isim;
         this.mail=mail;
         this.KullanıcıAdı=KullanıcıAdı;
@@ -51,3 +51,4 @@ public class KullanıcıOluşturma2 {
         this.guvenlik = guvenlik;
     }
 }
+
