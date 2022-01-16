@@ -1,9 +1,16 @@
+package kitapyazma;
+
 import java.util.ArrayList;
+import kitapyazma.EBook;
+import kitapyazma.KitapYazma;
 
 public class main {
     public static void main(String[] args) {
 
-
+            
+                new WriteBook().setVisible(true);
+            
+        
        EBook e = new EBook();
        e.KullanıcıEkle();
   
